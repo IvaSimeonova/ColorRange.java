@@ -1,0 +1,9 @@
+package project;
+
+public class Song {
+       int number;
+       
+       Song(int number){
+    	   this.number = number;
+       }
+}

@@ -1,3 +1,4 @@
+package Iva;
 public class ChildrenBook extends Product{
 		   
 	    private String publisher;
@@ -32,4 +33,4 @@ public class ChildrenBook extends Product{
 	    public void setYearPublished(int yearPublished) {
 	        this.yearPublished = yearPublished;
 	    }
-	   
+	    }

@@ -1,0 +1,25 @@
+package Iva;
+
+public class TestP {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Person person = new Person("Ivelina", 
+				                   "zhk. Lagera",
+				                   "0892367556",
+				                   "ivelina@gmail.com");
+		Student1 student = new Student1(
+				                      "Iva",
+				                      "zhk.Druzhba",
+			 	                      "08838212223",
+				                      "iva@gmail.com");
+		Employee1 employee = new Employee1(
+				                         "Ivan",
+				                         "zhk. Mladost",
+				                         "0892367556",
+						                 "ivan@gmail.com", null, 0, null);
+		
+
+	}
+
+}

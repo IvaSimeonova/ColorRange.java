@@ -40,7 +40,7 @@ package Iva;
 		}
 
 		public static void setYearInterestRate(double yearInterestRate) {
-			Account.yearInterestRate = yearInterestRate;
+			SavingAndCheckingAccount.yearInterestRate = yearInterestRate;
 		}
 		public Date getDateCreated() {
 			return dateCreated;

@@ -1,0 +1,15 @@
+package project;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Album {
+	String ISBN;
+	Band band;
+	ArrayList<Song> songs;
+	
+	Album(){
+		songs = new ArrayList<Song>(Arrays.asList(new Song(1), new Song(2), new Song(3)));
+	}
+
+}

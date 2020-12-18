@@ -1,0 +1,39 @@
+package Iva;
+
+import java.util.Date;
+
+public class Faculty extends Employee1 {
+	private String title;
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	public Faculty(String name, 
+			   String address,
+			   String e_mail, 
+			   String phoneNumber, 
+			   String office, 
+			   double salary, 
+			   Date dateHired, 
+			   String title){
+		   super(name, 
+				 address,
+				 e_mail, 
+				 phoneNumber, 
+				 office, 
+				 salary, 
+				 dateHired);
+		   this.title = title; 
+	   }
+	
+	 public String toString(){
+		   return super.toString() + "\n"  + "Title: " + title;
+	   }
+	
+
+}

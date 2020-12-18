@@ -1,0 +1,10 @@
+package project;
+
+import java.util.ArrayList;
+
+public class Band {
+	String name;
+	ArrayList<Album> albums;
+	
+
+}

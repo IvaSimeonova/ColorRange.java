@@ -1,0 +1,40 @@
+package Iva;
+
+import java.util.Date;
+
+public class Employee1 extends Person {
+
+	
+	private String office;
+	private double salary;
+	private Date dateHired = new Date();
+	public Employee1(String name, String address, String e_mail, String phoneNumber, String office, double salary, Date dateHired){
+	       super(name, address, e_mail, phoneNumber);
+	       this.office = office;
+	       this.dateHired = dateHired;
+	       this.salary = salary;
+	    }
+	public String getOffice() {
+		return office;
+	}
+	public void setOffice(String office) {
+		this.office = office;
+	}
+	public double getSalary() {
+		return salary;
+	}
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
+	public Date getDateHired() {
+		return dateHired;
+	}
+	public void setDateHired(Date dateHired) {
+		this.dateHired = dateHired;
+	}   
+	
+	public String toString(){
+		return super.toString() + "\n" + "Office: " + office + "\n" + "Salary: " + salary + "\n" + "Date hired: " + dateHired.toString();
+	}
+
+}

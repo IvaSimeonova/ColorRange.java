@@ -1,0 +1,36 @@
+package project;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Start {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Playlist playlist = new Playlist();
+		playlist.name = "Iva's playlist";
+		Band metallica = new Band();
+		metallica.name = "Metallica";
+		Band helloween = new Band();
+		metallica.name = "Helloween";
+		Album album1 = new Album();
+		album1.band = metallica;
+		album1.ISBN = "978-3-16-148410";
+		Album album2 = new Album();
+		album2.band = helloween;
+		album2.ISBN = "789-3-61-123456";
+		
+		metallica.albums = new ArrayList<Album>(Arrays.asList(album1));
+		helloween.albums = new ArrayList<Album>(Arrays.asList(album2));
+		
+		playlist.albums = new ArrayList<Album>(Arrays.asList(album1, album2));
+		
+		System.out.println("Collection of: " + playlist.name);
+		for (Album album : playlist.albums){
+			System.out.println(album.ISBN + " " + album.band.name);
+		}
+
+	}
+
+}

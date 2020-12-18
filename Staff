@@ -1,0 +1,53 @@
+package Iva;
+
+import java.util.Date;
+
+public class Staff extends Employee1{
+   private String officeHours;
+   private String rank;
+   
+   public Staff(String name, 
+		   String address,
+		   String e_mail, 
+		   String phoneNumber, 
+		   String office, 
+		   double salary, 
+		   Date dateHired, 
+		   String officeHours, 
+		   String rank){
+	   super(name, 
+			 address,
+			 e_mail, 
+			 phoneNumber, 
+			 office, 
+			 salary, 
+			 dateHired);
+	   this.officeHours = officeHours;
+	   this.rank = rank;
+	   
+   }
+   
+   public String getOffHOurs(){
+	   return officeHours;
+   }
+   
+   public void setOfficeHours(String officeHours){
+	   this.officeHours = officeHours;
+   }
+   
+   public String getOfficeHours(String officeHours){
+	   return officeHours;
+   }
+   
+   public void setRank(String officeHours){
+	   this.rank = rank;
+   }
+   
+   public String getRank(){
+	   return rank;
+   }
+   
+   public String toString(){
+	   return super.toString() + "\n"  + "Office hours: " + officeHours + "\n"  + "Rank: " + rank;
+   }
+}

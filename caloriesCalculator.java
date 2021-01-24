@@ -6,17 +6,21 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.JComboBox;
+import java.io.IOException;
+import java.text.ParseException;
 
 public class caloriesCalculator {
 	public static void main(String[] args) {
 	
-		JFrame frame = new JFrame("Calories per day");
+		JFrame frame = new JFrame("Calories calculator");
 		frame.setSize(350, 200);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -39,9 +43,14 @@ public class caloriesCalculator {
 
 		JTextArea planArea = new JTextArea();
 		planArea.setBounds(100, 20, 165, 25);
+		
 		planArea.setEditable(false);
 		planArea.setText("Answer this questions");
 		leftPanel.add(planArea);
+		
+
+		leftPanel.add(new JLabel(new ImageIcon("weight-loss(1).jpg")));
+		
 
 		// right side
 		SimpleDateFormat ft = new SimpleDateFormat("dd. M yyyy");
@@ -71,8 +80,8 @@ public class caloriesCalculator {
 		question3Area.setEditable(false);
 		question3Area.setText("How active are you?(1-4, 1 is not active, 4 is really active)");
 		rightPanel.add(question3Area);
-		
-		JTextField infoText_3 = new JTextField();
+		String[] s = { "","1", "2", "3", "4" };
+		JComboBox<Object> infoText_3 = new JComboBox<Object>(s);
 		rightPanel.add(infoText_3);
 		
 		JTextArea question4Area = new JTextArea();
@@ -83,12 +92,6 @@ public class caloriesCalculator {
 		
 		JTextField infoText_4 = new JTextField();
 		rightPanel.add(infoText_4);
-		
-	/*	JTextArea question5Area = new JTextArea();
-		question5Area.setBounds(100, 20, 165, 25);
-		question5Area.setEditable(false);
-		question5Area.setText("How much weight do you want to lose?");
-		rightPanel.add(question5Area);*/
 		
 		
 		JLabel caloriesLabel = new JLabel("calories");
@@ -101,18 +104,45 @@ public class caloriesCalculator {
 		JButton showButton = new JButton("Show me my results");
 		showButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				int age = Integer.parseInt(infoText_1.getText());
-				int weight = Integer.parseInt(infoText_2.getText());
-				int active = Integer.parseInt(infoText_3.getText());
-				int height = Integer.parseInt(infoText_4.getText());
-				clientsData data = new clientsData(age,weight,active,height);
-				infoText_5.setText(Integer.toString(data.calculateCalories()));
+				try{
+			int age = Integer.parseInt(infoText_1.getText());
+			int weight = Integer.parseInt(infoText_2.getText());
+			int active = Integer.parseInt((String)infoText_3.getSelectedItem());
+			int height = Integer.parseInt(infoText_4.getText());
+			
+			
+			//String petName = (String)cb.getSelectedItem();
+				 clientsData data = new clientsData();
+				 data.validateData(age, weight, active, height);
+					infoText_5.setText(Integer.toString(data.calculateCalories()));	
+			 
+		            
+		                
+				}catch (Exception e1) {
+					infoText_5.setText("Something went wrong. Enter numerical values.");
+			    }	
+				
 			}
+
 
 		});
 		rightPanel.add(showButton);
 
-		
+		JButton clearButton = new JButton("Clear");
+		clearButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				infoText_1.setText(null);
+				infoText_2.setText(null);
+				infoText_3.setSelectedIndex(0);;
+				infoText_4.setText(null);
+				infoText_5.setText(null);
+			}
+
+
+		});
+		rightPanel.add(clearButton);
+
 		
 
 		frame.pack();
@@ -120,13 +150,4 @@ public class caloriesCalculator {
 		frame.setVisible(true);
         
 	}
-	
-	
-	
-	//public clientsData SetClientsData(int age, int weight, int height, int active, int weightToLose){
-	//return new clientsData(age, weight, height, active, weightToLose);
-		
-	//}
-	
-	
 }
